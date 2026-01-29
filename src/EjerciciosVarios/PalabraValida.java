@@ -10,7 +10,7 @@ public class PalabraValida {
     public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
 
-        System.out.println("Bienvenido a la aplicación de valicación de una palabra");
+        System.out.println("Bienvenido a la aplicación de validación de una palabra");
         System.out.println("--------------------------------------------------------");
 
         System.out.println("Ingresa la palabra que quieras validar:");
@@ -23,7 +23,7 @@ public class PalabraValida {
 
         //Validamos la longitud primero
         int n = palabra.length();
-        //creo la variable n y con el metodo length lo asocio al valor(int de palabra)
+        //creo la variable n y con el método length lo asocio al valor(int de palabra)
         if (n >= 6 && n <= 12) {
             longitudAceptada = true;
         }
