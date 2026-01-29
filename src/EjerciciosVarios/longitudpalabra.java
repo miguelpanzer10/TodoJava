@@ -2,7 +2,7 @@ package EjerciciosVarios;
 import java.util.Scanner;
 
 public class longitudpalabra {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         /*Aquí, creo un Scanner(le llamo lector) y decirle de dónde va a leer los datos.
         Lo más común es leer desde la entrada estándar del sistema, que es la consola/teclado, usando System*/
