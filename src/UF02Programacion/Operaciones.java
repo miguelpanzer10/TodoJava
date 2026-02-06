@@ -9,6 +9,8 @@ public class Operaciones {
 
         Operaciones objeto = new Operaciones();
         //Para llamar a los métodos que quiera crear, antes, necesito tener un objeto de la clase
+        //aqui es porque la clase tiene los metodos, pero si los metodos fuesen de otyra clase, el objeto que habria que crear aqui seria de la otra clase(como en el
+        //ejercicio de BatallaPokemon
         double[] datos = objeto.leerDatos();
         //Como leerDatos devuelve un array de int,
         double multiplicacion= objeto.Multiplicacion(datos);
