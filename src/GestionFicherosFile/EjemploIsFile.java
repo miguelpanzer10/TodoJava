@@ -96,6 +96,7 @@ public class EjemploIsFile {
 
         System.out.println(f2.getAbsolutePath());
 
+
     }
 
 }
