@@ -32,7 +32,10 @@ public class CombatePokemon {
                 (tipoAtaque.equalsIgnoreCase("Planta") && tipoDefensor.equalsIgnoreCase("Agua")) ||
                 (tipoAtaque.equalsIgnoreCase("Agua") && tipoDefensor.equalsIgnoreCase("Fuego")) ||
                 (tipoAtaque.equalsIgnoreCase("Electrico") && tipoDefensor.equalsIgnoreCase("Agua")) ||
-                (tipoAtaque.equalsIgnoreCase("Roca") && tipoDefensor.equalsIgnoreCase("Fuego"))) { // Roca vence a Fuego
+                (tipoAtaque.equalsIgnoreCase("Roca") && tipoDefensor.equalsIgnoreCase("Fuego"))||
+                (tipoAtaque.equalsIgnoreCase("Planta") && tipoDefensor.equalsIgnoreCase("Roca"))||
+                (tipoAtaque.equalsIgnoreCase("Agua") && tipoDefensor.equalsIgnoreCase("Roca"))
+        ) { // Roca vence a Fuego
             return 2.0;
         }
         // Desventaja(Daño x0.5)
@@ -92,8 +95,8 @@ public class CombatePokemon {
         if (atacante.estado.equalsIgnoreCase("paralizado")) {
             Random Paralisis = new Random();
             if (Paralisis.nextInt(100) < 25) { // 25% de probabilidad
-                System.out.println("Turno de " + atacante.nombre + " :");
-                System.out.println("¡" + atacante.nombre + " está paralizado y no puede moverse!");
+                System.out.println( "\nTurno de " + atacante.nombre + " :");
+                System.out.println("¡" + atacante.nombre + " está paralizado y no puede moverse! ⚡⚡");
                 return 0;
                 // Devolvemos 0 daño y salimos del método, así es mas funcional porque sale y no hace lo demás
             }
@@ -101,6 +104,19 @@ public class CombatePokemon {
 
         //Uso el objeto de la clase Pokemon,que puedo acceder a él porque en Main llamo a ese objeto y este metodo lo coge como parámetro
         System.out.println("Turno de " + atacante.nombre + " :");
+        if(atacante.tipo=="Fuego"){
+            System.out.println(atacante.nombre+" uso Lanzallamas ♨️");
+        } else if (atacante.tipo=="Planta") {
+            System.out.println(atacante.nombre+" uso Lluevehojas 🍃");
+        } else if (atacante.tipo=="Roca") {
+            System.out.println(atacante.nombre+" uso Avalancha 🗻");
+        } else if (atacante.tipo=="Agua") {
+            System.out.println(atacante.nombre+" uso Hidrobomba 🚿");
+        }
+        else {
+            System.out.println(atacante.nombre+" uso Rayo ⛈️");
+        }
+        //Meto unos ataques estándar según el tipo
 
         //llamo al metodo de efectividad y guardo el resultado (2,0'5...) en la variable efec
         // Ahora sacamos los tipos directamente de los objetos
@@ -111,7 +127,7 @@ public class CombatePokemon {
         int critico = 1;
         if (esGolpeCritico()) {
             critico = 2;
-            System.out.println("¡¡GOLPE CRÍTICO!!");
+            System.out.println("¡¡GOLPE CRÍTICO‼️");
         }
 
         // Calculo del daño con la formula base
@@ -123,7 +139,7 @@ public class CombatePokemon {
         //Uso otra vez el (int) porque calcularefectividad es double, asi me aseguro que me lo pasa a int
 
         // Mensaje para el usuario
-        if (efec > 1) System.out.println("¡Es muy eficaz!");
+        if (efec > 1) System.out.println("¡Es muy eficaz! ");
         else if (efec < 1) System.out.println("No es muy eficaz...");
 
         System.out.println("Daño infligido: " + danoFinal);
@@ -134,22 +150,23 @@ public class CombatePokemon {
         int probabilidad = rand.nextInt(100); // 0 a 99
         //Tengo que meter lo de estado ninguno, porque sino, al ser varios turnos, lo quema,paraliza o envenena varias veces
         // Si el que ataca es de Fuego, tiene un 20% de quemar al rival (y solo si no tiene estado previo)
-        if (atacante.tipo.equalsIgnoreCase("Fuego") && probabilidad < 20 && defensor.estado.equalsIgnoreCase("ninguno")) {
+        //también he tenido que meter que la condicion sea que la vida del defensor es mayor que 0, porque sino, a veces lo quema y lo mata
+        if (atacante.tipo.equalsIgnoreCase("Fuego") && probabilidad < 20 && defensor.estado.equalsIgnoreCase("ninguno")&& defensor.vidaActual>0) {
             defensor.estado = "quemado";
-            System.out.println("¡" + atacante.nombre + " ha quemado a " + defensor.nombre + "!");
+            System.out.println("¡" + atacante.nombre + " ha quemado a " + defensor.nombre + "! 🔥");
         }
         // Si el que ataca es de Planta, tiene un 15% de envenenar al rival (y solo si no tiene estado previo)
-        else if (atacante.tipo.equalsIgnoreCase("Planta") && probabilidad < 15 && defensor.estado.equalsIgnoreCase("ninguno")) {
+        else if (atacante.tipo.equalsIgnoreCase("Planta") && probabilidad < 15 && defensor.estado.equalsIgnoreCase("ninguno")&& defensor.vidaActual>0) {
             defensor.estado = "veneno";
-            System.out.println("¡" + atacante.nombre + " ha envenenado a " + defensor.nombre + "!");
+            System.out.println("¡" + atacante.nombre + " ha envenenado a " + defensor.nombre + "! ☠️");
         }
         // Si el que ataca es electrico, tiene un 25% de paralizar al rival
         // ¡Añadimos la condición de que el estado sea "ninguno" para no paralizar dos veces!
-        else if (atacante.tipo.equalsIgnoreCase("Electrico") && probabilidad < 25 && defensor.estado.equalsIgnoreCase("ninguno")) {
+        else if (atacante.tipo.equalsIgnoreCase("Electrico") && probabilidad < 25 && defensor.estado.equalsIgnoreCase("ninguno")&& defensor.vidaActual>0) {
             defensor.estado = "paralizado";
             defensor.velocidad = defensor.velocidad / 2;
-            System.out.println("¡" + atacante.nombre + " ha paralizado a " + defensor.nombre + "!");
-            System.out.println("¡La velocidad de " + defensor.nombre + " ha disminuido!");
+            System.out.println("¡" + atacante.nombre + " ha paralizado a " + defensor.nombre + "! ⚡");
+            System.out.println("¡La velocidad de " + defensor.nombre + " ha disminuido! ⬇️");
             System.out.println("¡La velocidad de " + defensor.nombre + " ahora es: "+defensor.velocidad);
             //Meto que si le paraliza, diga la velocidad actual del pokemon así se ver visualmente la disminución
         }

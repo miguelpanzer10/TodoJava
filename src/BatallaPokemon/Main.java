@@ -26,7 +26,7 @@ public class Main {
                 new Pokemon("Raichu", "Electrico", 50, 250, 100, 75, 110)
         };
 
-        System.out.println("Pokémon disponibles: Charmander(Nv12), Squirtle(Nv12), Bulbasaur(Nv12), Charizard(Nv50), Blastoise(Nv50), Venusaur(Nv50), Golem(Nv50), Onix(Nv20), Pikachu(Nv12), Raichu(Nv50)");
+        System.out.println("Pokémon disponibles: Charmander(Nv12)🔥, Squirtle(Nv12)💧, Bulbasaur(Nv12)🌱, Charizard(Nv50)🔥, Blastoise(Nv50)💧, Venusaur(Nv50)🌱, Golem(Nv50)🪨, Onix(Nv20)🪨, Pikachu(Nv12) ⚡, Raichu(Nv50) ⚡");
 
         // 2. Selección por nombre
         System.out.println("Escribe el nombre de tu Pokémon: ");
@@ -49,9 +49,7 @@ public class Main {
         System.out.println("--------------------------------------------------------------------------");
 
 
-
-
-        try { Thread.sleep(2000); } catch (InterruptedException e) {}
+        try { Thread.sleep(1500); } catch (InterruptedException e) {}
         // Pausa antes de empezar el combate
 
         // Bucle del combate: se repite mientras ambos tengan vida mayor a 0
@@ -81,9 +79,9 @@ public class Main {
         // Resultado final: mostramos quién muere y quien gana
         System.out.println("\n-----------------------------------");
         if (p1.vidaActual <= 0) {
-            System.out.println("¡" + p1.nombre + " se ha debilitado! El ganador es " + p2.nombre);
+            System.out.println("¡" + p1.nombre + " se ha debilitado!💀 El ganador es " + p2.nombre);
         } else {
-            System.out.println("¡" + p2.nombre + " se ha debilitado! El ganador es " + p1.nombre);
+            System.out.println("¡" + p2.nombre + " se ha debilitado!💀 El ganador es " + p1.nombre);
         }
     }
 
@@ -109,13 +107,9 @@ public class Main {
 
     private static void BatallaFinal(CombatePokemon c, Pokemon atacante, Pokemon defensor) {
         //Uso private para sólo acceder a este método en el Main
-        // Pausa de 1.5 segundos (1500 milisegundos) para dar emoción al combate y que no salga todo seguido
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            // Si algo falla en la pausa, sale el error, aunque es raro que pase
-            e.printStackTrace();
-        }
+        // Pausa de 3 segundos (3000 milisegundos) para dar emoción al combate y que no salga todo seguido
+        try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+        // Si algo falla en la pausa, sale el error, aunque es raro que pase
 
         // pokemon atacante y defensor lo que estoy haciendo es pasarle el tipo de dato, que es un objeto de pokemon
         // En CombatePokemon es lo mismo, digo que el dato es el objeto combatepokemon(para usar sus metodos) y lo llamo c para usarlo
@@ -137,6 +131,6 @@ public class Main {
         // Control para que la vida no sea negativa (si baja de 0, lo dejamos en 0)
         if (defensor.vidaActual < 0) defensor.vidaActual = 0;
 
-        System.out.println("Vida restante de " + defensor.nombre + ": " + defensor.vidaActual);
+        System.out.println("Vida restante de " + defensor.nombre + ": " + defensor.vidaActual +"\n");
     }
 }
