@@ -34,7 +34,7 @@ public class GestorFicheros {
         //voy a darles permisos de escritura y lectura aleatorios:
         f1.canWrite();//solo escritura
         f2.setReadOnly();//solo lectura, pero lo hago de escritura tambien
-        f2.setWritable(true);//lo hago de escritura también
+        f2.setWritable(true);//lo hago de escritura también. //podria poner canWrite y canRead
         f3.setReadOnly();//solo lectura
 
 
