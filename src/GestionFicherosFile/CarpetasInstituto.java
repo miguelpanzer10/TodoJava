@@ -42,10 +42,11 @@ public class CarpetasInstituto {
         //Intentar borrar "primero" con delete()
         System.out.println("\n--- Intento de borrado ---");
         // Usamos la variable 'ruta' que ya apunta a "instituto/cursos/DAM/primero"
-        if (ruta.delete()) {
-            System.out.println("La carpeta 'primero' ha sido eliminada correctamente.");
+        ruta.delete();
+        if (ruta.exists()) {
+            System.out.println("No se pudo eliminar la carpeta 'primero");
         } else {
-            System.out.println("No se pudo eliminar la carpeta 'primero'.");
+            System.out.println("La carpeta 'primero' ha sido eliminada correctamente.");
         }
 
     }
@@ -53,7 +54,7 @@ public class CarpetasInstituto {
 
 /*Un instituto quiere organizar sus carpetas de datos. Escribe un programa en Java que haga lo siguiente:
 * Comrpobar con if si existe la carpeta "instituto" usando exists(), si no existe, crearla con mkdir()
-* Dentro de instituto, crear la ruta anidada "cursos/DAM/primero usando mkdirs()
+* Dentro de instituto, crear la ruta anidada "cursos/DAM/primero" usando mkdirs()
 * Usar listFiles() y recorrer el contenido de "instituto" con un bucle for. Para cada elemento, usar if/else con isDirectory() para indicar si es directorio o fichero
 * Obtener los nombres con list() y mostrarlos con un do-while(solo si el array no es null)
 * Intentar borrar "primero" con delete() y usar if/else para mostrar si se puede eliminar*/
