@@ -13,6 +13,8 @@ public class FicheroStreams {
         String nombres = sc.nextLine();
 
         // 1. Escritura del archivo usando try-with-resources
+        //Con fileWriter me deja escribir en el archivo y si este no existe, lo crea, asi me evito usar
+        //el createnewfile
         try (FileWriter alumnos = new FileWriter("alumnos.txt")) {
             // Cortamos el String por las comas para separar los nombres
             String[] arrayNombres = nombres.split(",");
