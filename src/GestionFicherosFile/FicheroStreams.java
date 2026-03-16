@@ -7,7 +7,6 @@ public class FicheroStreams {
     public static void main(String[] args) { // Ya no hace falta el throws IOException
         System.out.println("Bienvenido a la lectura de ficheros");
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Tenemos un fichero que recoge el nombre de los alumnos:");
         System.out.println("Escribe el nombre de 5 alumnos, separados por comas:");
         String nombres = sc.nextLine();
