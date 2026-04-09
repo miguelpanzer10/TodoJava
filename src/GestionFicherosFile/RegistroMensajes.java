@@ -50,7 +50,10 @@ public class RegistroMensajes {
     }
 }
 
-
+//Realmente el flush y close no harian falta, porque el try los hace automatico por ti, pero mete el flush porque:
+//Sin el flush dentro del bucle: Si el programa se corta de golpe (por ejemplo, se va la luz o el ordenador se apaga) mientras el usuario está escribiendo mensajes,
+// los mensajes que estuvieran en el buffer pero no se hubieran volcado al disco todavía, se perderían.
+//Con el flush dentro del bucle: Te aseguras de que cada vez que el usuario pulsa "Intro", el mensaje se guarda físicamente en el archivo al instante.
 
 
 /*Crea un programa que simule un sistema de escritura:

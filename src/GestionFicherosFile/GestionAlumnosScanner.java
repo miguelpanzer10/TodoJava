@@ -56,3 +56,12 @@ public class GestionAlumnosScanner {
         System.out.println("Alumno: " + nombre.trim() + " | Nota: " + nota);
     }
 }
+
+//Crea un programa que gestione registros de alumnos con RandomAccessFile:
+//Cada registro tiene: nombre (10 chars fijos) + nota (double)
+//Tamaño registro = 10 × 2 + 8 = 28 bytes
+//1.  Escribe 3 alumnos: Ana (8.5), Luis (6.0), Sara (9.2)
+//2.  Lee DIRECTAMENTE el 2º alumno sin leer el 1º (usa seek)
+//3.  Modifica la nota del 1er alumno a 9.8
+//4.  Muestra todos los alumnos
+//Usa seek(n × TAM_REGISTRO) para saltar al registro n.

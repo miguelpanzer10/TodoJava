@@ -46,7 +46,7 @@ public class AgendaContactos {
             }
 
         } catch (EOFException e) {
-            // Este bloque se ejecuta automáticamente al llegar al final del fichero
+            // Este bloque se ejecuta automáticamente al llegar al final del fichero y hace que termine
             System.out.println("\n--- Fin de la agenda ---");
         } catch (IOException e) {
             e.printStackTrace();

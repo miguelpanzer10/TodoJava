@@ -22,7 +22,7 @@ public class FicheroStreams {
                 // Escribimos el nombre. El método .trim() quita los espacios en blanco sobrantes
                 // y el "\n" añade el salto de línea para que el siguiente vaya abajo.
                 alumnos.write(nombre.trim() + "\n");
-            }
+            }// <--- Justo aquí, Java hace "alumnos.close()" por ti de forma invisible gracias a try-resources
             System.out.println("Nombres guardados correctamente.\n");
         } catch (IOException e) {
             System.out.println("Ocurrió un error al escribir: " + e.getMessage());
