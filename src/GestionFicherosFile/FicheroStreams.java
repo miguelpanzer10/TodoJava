@@ -51,7 +51,7 @@ public class FicheroStreams {
 /*Crea un programa Java que lea un fichero de texto línea a línea utilizando flujos de datos (streams):
 1.Crea un fichero de texto llamado alumnos.txt con al menos 5 nombres
 2.Abre el fichero usando un flujo de caracteres de entrada (FileReader)
-3.Envuelvelo con BufferedReader para leer línea a línea
+3.Envuélvelo con BufferedReader para leer línea a línea
 4.Muestra cada nombre por consola con su número de línea
 5.Utiliza try-with-resources para cerrar el flujo automáticamente
 Utiliza las clases de flujo de caracteres (Reader/Writer) vistas en las diapositivas anteriores.*/
